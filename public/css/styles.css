@@ -4,3 +4,51 @@
 *:after {
   box-sizing: border-box;
 }
+/********** Style Base/Small VIew *******/
+nav {
+  background-color: #fb8153;
+  width:auto; 
+}
+nav ul {
+  display: flex;
+  height: 42px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 100%;
+  padding: 13px; 
+  font-family:sans-serif
+}
+nav li {
+  color: white;
+  list-style: none
+
+}
+div#tools {
+text-align:right;
+padding: 40px;
+}
+
+div#tools a {
+text-decoration: none;
+color: inherit;
+}
+span.siteName a {
+text-decoration: none; 
+position: absolute;
+top: 65px;
+font-size: 25px;  
+font-family: sans-serif;
+color: inherit;    
+
+}
+
+img {
+  width: 100%;
+}
+
+
+/************ For Large View ********/
+@media only screen and (min-width: 650px) {
+/*** Grid display ****/
+}
