@@ -9,6 +9,8 @@ nav {
   background-color: #fb8153;
   width:auto; 
 }
+/********** This controls the nav *******/
+
 nav ul {
   display: flex;
   height: 42px;
@@ -24,6 +26,7 @@ nav li {
   list-style: none
 
 }
+/********** My Account *******/
 div#tools {
 text-align:right;
 padding: 40px;
@@ -35,7 +38,7 @@ h1 {
   font-size: 20px;   
   padding: 20px;
   }
-
+/********** CSE Motors *******/
 div#tools a {
 text-decoration: none;
 color: inherit;
@@ -51,7 +54,11 @@ color: inherit;
 }
 
 img {
-  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  
 }
 
 
@@ -61,15 +68,15 @@ img {
 }
 
 
-/* Bottom right text */
+/********** Box *******/
 .text-block {
   position: absolute;
-  bottom: 270px;
+  bottom: 590px;
   left: 5px;
-  background-color: hsl(0deg 2.34% 89.82% / 53%);
+  background-color: hsl(198.67deg 97.57% 48.43% / 11%);
   padding-left: 10px;
   padding-right: 10px;
-  height: 45%;
+  height: 26%;
   border-radius: 3px;
 }
 .text-block h4 {
@@ -99,16 +106,76 @@ border-radius: 3px;
 color: white;
 
 }
-
+/********** Reviews *******/
 .reviews li {
 font-size: 15px;
 font-family: sans-serif;
 padding: 10px;
 color: black;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 180px;
+  height: 110px;
+  padding: 20px;
+  border: 12px solid white;
+  
+   
+ }
+ 
+ /* Clear floats after the columns */
+ .row:after {
+   content: "";
+   display: table;
+   clear: both;
+   justify-content: space-between;
+
+ }
+ /* Upgrade Links */
+  a.Flux.Capacitor {
+    color:blue;
+    padding: 10px;
+    position:relative; 
+    top:11px;
+  }
+
+a.Flux.Capacitor {
+  color:blue;
+  padding: 10px;
+  position:relative; 
+  top:11px;
 
 
+}
+a.Flames {
+  color:blue;
+  padding: 10px;
+  position:relative; 
+  
 
 
+}
+a.Bumper.sticker {
+  color:blue;
+  position:relative; 
+  top:18px;
+}
+
+a.Hub.caps {
+  color:blue;
+  position:relative; 
+  top:12px;
+  padding: 18px;
+}
+p.copyright {
+  color:black;
+  position:relative; 
+  top:12px;
+  padding: 18px;
+  font-family: sans-serif;
+}
 
 
 
