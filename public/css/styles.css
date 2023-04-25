@@ -64,13 +64,12 @@ img {
 /* Bottom right text */
 .text-block {
   position: absolute;
-  bottom: 0px;
-  top: 10px;
-  left: 20px;
+  bottom: 270px;
+  left: 5px;
   background-color: hsl(0deg 2.34% 89.82% / 53%);
   padding-left: 10px;
   padding-right: 10px;
-  height: 112%;
+  height: 45%;
   border-radius: 3px;
 }
 .text-block h4 {
@@ -85,7 +84,7 @@ color: hsl(16.43deg 95.45% 65.49%);
 font-size: 16px;
 font-family: sans-serif;
 height: 7%;
-color: hsl(16.43deg 95.45% 65.49%);
+color: rgb(0, 0, 0);
 
 }
 
@@ -97,8 +96,15 @@ border: none;
 cursor: pointer;
 padding: 10px 35px;
 border-radius: 3px;
+color: white;
 
+}
 
+.reviews li {
+font-size: 15px;
+font-family: sans-serif;
+padding: 10px;
+color: black;
 
 
 
