@@ -1,375 +1,258 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+
+html{
   box-sizing: border-box;
-
+}
+ 
+*, *:before, *:after{
+  box-sizing: inherit;
 }
 
-/************ For Small View ********/
-@media only screen and (min-width: 320px) {
-  /*** Grid display ****/
 
-}
 
-  nav {
-    background-color: #fb8153;
-    width:auto; 
-  }
-  /********** This controls the nav *******/
-  
-  nav ul {
-    display: flex;
-    height: 42px;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: auto;
-    width: 100%;
-    padding: 13px; 
-    font-family:sans-serif
-  }
-  nav li {
-    color: white;
-    list-style: none
-  
-  }
-  /********** My Account *******/
-  div#tools {
-  text-align:right;
-  padding: 40px;
-  }
-  
-  h1 {
-  
-    font-family: sans-serif;
-    font-size: 20px;   
-    padding: 20px;
-    }
-  /********** CSE Motors *******/
-  div#tools a {
-  text-decoration: none;
-  color: inherit;
-  }
-  span.siteName a {
-  text-decoration: none; 
-  position: absolute;
-  top: 65px;
-  font-size: 25px;  
-  font-family: sans-serif;
-  color: inherit;    
-  
-  }
-  
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    
-  }
-  
-  
-  /* Container holding the image and the text */
-  .container {
-    position: relative;
-  }
-  
-  
-  /********** Box *******/
-  div.text-block {
-    position: absolute;
-    bottom: 790px;
-    left: 5px;
-    background-color: rgba(10, 129, 185, 0.77);
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 26%;
-    border-radius: 3px;
-  }
-  .text-block h4 {
-  font-size: 20px;
-  font-family: sans-serif;
-  height: 7%;
-  color: hsl(16.43deg 95.45% 65.49%);
-    
-  }
-  
-  .text-block p {
-  font-size: 16px;
-  font-family: sans-serif;
-  height: 7%;
-  text-shadow: 0 0 4px #cdcdcd9e;
-  font-weight: bold; 
-  }
-  
-  .text-block button {
-  font-size: 15px;
-  font-family: sans-serif;
-  background-color: hsl(16.43deg 95.45% 65.49%);
-  border: none;
-  cursor: pointer;
-  padding: 10px 35px;
-  border-radius: 3px;
-  color: white;
-  text-shadow: 0 0 4px #826c6c7d;
-  
-  }
-  /********** Reviews *******/
-  .reviews li {
-  font-size: 15px;
-  font-family: sans-serif;
-  padding: 10px;
-  color: black;
-  }
-  
-  /* Create two equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 180px;
-    height: 110px;
-    padding: 20px;
-    border: 12px solid white;
-    
-     
+ body {
+   font-family: sans-serif;
+   font-size: 25px;
+   background-image: url("/images/site/checkerboard.jpg");
+ }
+ 
+ div#wrapper {
+       width: 95%;
+       border: #4b9ee0 solid 5px;
+       border-radius: 10px;
+       margin: 0 auto;
+       margin-top: 20px;
+
    }
-   
-   /* Clear floats after the columns */
-   .row:after {
-     content: "";
-     display: table;
-     clear: both;
-     justify-content: space-between;
-  
-   }
-   /* Upgrade Links */
-    a.Flux.Capacitor {
-      color:blue;
-      padding: 10px;
-      position:relative; 
-      top:11px;
-    }
-  
-  a.Flux.Capacitor {
-    color:blue;
-    padding: 10px;
-    position:relative; 
-    top:11px;
-  
-  
-  }
-  a.Flames {
-    color:blue;
-    padding: 10px;
-    position:relative; 
-    
-  
-  
-  }
-  a.Bumper.sticker {
-    color:blue;
-    position:relative; 
-    top:18px;
-  }
-  
-  a.Hub.caps {
-    color:blue;
-    position:relative; 
-    top:12px;
-    padding: 18px;
-  }
-  p.copyright {
-    color:black;
-    position:relative; 
-    top:12px;
-    padding: 18px;
-    font-family: sans-serif;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/************ For Large View ********/
-@media only screen and (min-width: 650px) {
-/*** Grid display ****/
-
-}
-nav ul {
-  display: flex;
-  height: 42px;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: auto;
-  width: 100%;
-  padding: 13px; 
-  font-family:sans-serif
-}
-nav li {
-  color: white;
-  list-style: none
-
-}
-/********** My Account *******/
-div#tools {
-text-align:right;
-padding: 55px;
-}
-
-h1 {
-
-  font-family: sans-serif;
-  font-size: 40px;   
-  padding: 40px;
-  }
-/********** CSE Motors *******/
-div#tools a {
-text-decoration: none;
-color: inherit;
-}
-span.siteName a {
-text-decoration: none; 
-position: absolute;
-top: 55px;
-font-size: 30px;  
-font-family: sans-serif;
-color: inherit;    
-
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  
-}
-
-
-/* Container holding the image and the text */
-.container {
-  position: relative;
-}
-
-
-/********** Box *******/
- .text-block {
-  position: absolute;
-  bottom: 660px;
-  left: 5px;
-  background-color: hsl(53.88deg 97.55% 62.7% / 60%);
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 26%;
-  border-radius: 3px;
-}
-.text-block h4 {
-font-size: 30px;
-font-family: sans-serif;
-height: 7%;
-color: hsl(16.43deg 95.45% 65.49%);
-  
-}
-
-.text-block p {
-font-size: 25px;
-font-family: sans-serif;
-height: 7%;
-text-shadow: 0 0 4px #cdcdcd9e;
-font-weight: bold; 
-
-}
-
-.text-block button {
-font-size: 20px;
-font-family: sans-serif;
-background-color: hsl(16.43deg 95.45% 65.49%);
-border: none;
-cursor: pointer;
-padding: 10px 35px;
-border-radius: 3px;
-color: white;
-text-shadow: 0 0 4px #826c6c7d;
-position: relative;
-margin-right:auto;
-
-}
-/********** Reviews *******/
-.reviews li {
-font-size: 15px;
-font-family: sans-serif;
-padding: 10px;
-color: black;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 180px;
-  height: 110px;
-  padding: 20px;
-  border: 12px solid white;
-  
+ 
+ main {
+   max-width: 100%;
+   background-color: #ffffff;
    
  }
  
- /* Clear floats after the columns */
- .row:after {
-   content: "";
-   display: table;
+ /********** Header *******/
+ header {
+   padding: 80px;
+  background-color: #ffffff;
+ }
+   /********** My Account *******/
+   div#tools a  {  
+   color: inherit;
+   text-decoration: none;
+   float: right;
+     /********** CSE Motors *******/
+  }
+   span.siteName a {
+   text-decoration: none; 
+   font-size: 40px;  
+   font-family: sans-serif;
+   color: inherit;    
+   padding: 20px;
+
+   }
+  /********** Text Box *******/
+ .text-block   {
+   width: 170px;
+   padding: 50px;
+   background:#ffffff7d;
+   height:390px;
+   position: relative;
+   bottom: 410px;
+   padding-left: 10px;
+   padding-right: 10px;
+     
+ 
+ }
+ 
+ header p {
+   float: right;
+ }
+ 
+ .name-label {
+   font-size: 0.6em;
    clear: both;
-   justify-content: space-between;
+   float: right;
+ }
+ 
+  /********** Nav *******/
+ nav {
+   clear: both;
+   font-size: 0.5em;
+ }
+ 
+ nav ul {
+   display: flex;
+   background-color: #fb8153;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   justify-content: space-evenly;
+ }
+ 
+ nav li {
+   display: inline;
+ }
+ 
+ nav li a {
+   display: block;
+   color: #000000;
+   text-align: center;
+   padding: 10px 16px;
+   text-decoration: none;
+ }
+ 
+ nav li a:hover {
+   background-color: white;
+   color: #3a3a3a;
+ }
+ 
+ /* Code for main */
+ main {
+   padding: 20px;
+ }
+ 
+ main img {
+   max-width: 100%;
+ }
+ .homepage-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
 
  }
- /* Upgrade Links */
-  a.Flux.Capacitor {
-    color:blue;
-    padding: 10px;
-    position:relative; 
-    top:11px;
-  }
+ 
+ .text-block {
+   position: relative;
+ }
+  /********** Text Box *******/
+ .text-block h2 {
+   color: #FFC107;
+   font-size: 21px;
+   height:10px;
+   
+ }
+  /********** Text Box Button *******/
+ .container p {
+   color: #349efb;
+   font-size: 18px;
+   padding-left: 10px;
+   padding-right: 10px;
+ 
+ }
+ 
+  .container button {
+   padding: 8px;
+   text-align: center;
+   max-width: 90%;
+   color: #000000;
+   background-color: #fb8153;
+   text-decoration: none;
+   padding-left: 10px;
+   padding-right: 10px;
+   font-size: 20px;
+   border: none;
+   border-radius: 4px;
+ 
+ }
+  /********** Reviews/Upgrades *******/
+ .upgrade {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 15px;
+   width: 40%;
+ }
+ 
+ div.box {
+   text-align: center;
+   color: #000000;
+   background-color: #fb8153;
+   border-radius: 4px;
+   padding: 1.5rem;
+   min-width: 200px;
+ }
+ 
+ .box img {
+   display: block;
+   margin: 0 auto;
+ }
 
-a.Flux.Capacitor {
-  color:blue;
-  padding: 10px;
-  position:relative; 
-  top:11px;
-
-
-}
-a.Flames {
-  color:blue;
-  padding: 10px;
-  position:relative; 
+ 
+ div.item a {
+  font-size: 18px;
+  color: #000000;
   
+ }
 
 
-}
-a.Bumper.sticker {
-  color:blue;
-  position:relative; 
-  top:18px;
-}
-
-a.Hub.caps {
-  color:blue;
-  position:relative; 
-  top:12px;
-  padding: 18px;
-}
-p.copyright {
-  color:black;
-  position:relative; 
-  top:12px;
-  padding: 18px;
-  font-family: sans-serif;
-}
-
+ 
+ #pass-label {
+   color: white;
+   font-size: 0.5em;
+ }
+ 
+ .reviews p {
+   border: black solid 2px;
+   margin-top: 10px;
+ }
+ 
+ /* Code for the footer */
+ footer {
+   text-align: left;
+   font-size: 1.5em;
+   padding-bottom: 20px;
+   clear: both;
+   padding:10px;
+   background-color: white;
+ }
+ 
+  
+ 
+ 
+  /********** Small screen *******/
+ @media only screen and (min-width: 37em) {
+   .page {
+       width: 95%;
+       border: #4b9ee0 solid 5px;
+       border-radius: 10px;
+       margin: 0 auto;
+       margin-top: 20px;
+   }
+ 
+   nav {
+       font-size: 1em;
+   }
+ 
+   .container h2 {
+       position: absolute;
+       top: -28px;
+       left: 10px;
+   }
+   
+   .container p {
+       top: 12px;
+       left: 10px;
+   }
+ 
+   .button {
+       position: absolute;
+       top: 116px;
+       left: 10px;
+       width: 150px;
+   }
+ 
+   footer {
+       font-size: 20px;
+   }
+ }
+ 
+ /* 64em is also 1028px when basefont is 16px */
+ @media only screen and (min-width: 64rem) {
+   .page {
+       width: 80%;
+   }
+ 
+   nav {
+       font-size: 18px;
+   }
+  }
