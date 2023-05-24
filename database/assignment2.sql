@@ -22,6 +22,8 @@ INNER JOIN classification
 ON inventory.classification_id = classification.classification_id
 WHERE inventory.classification_id = 2;
 
---Images and Thumbnails
 UPDATE inventory
-SET inv_image = CONCAT('/images/vehicles/a-car-name.jpg', inv_image), inv_thumbnail = CONCAT('/images/vehicles/a-car-name.jpg', inv_thumbnail);
+SET inv_image = REPLACE(inv_image, 'images', 'images/vehicles');
+
+UPDATE inventory
+SET inv_thumbnail = REPLACE(inv_thumbnail, 'images', 'images/vehicles');
