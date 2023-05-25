@@ -52,18 +52,17 @@ html{
 
    }
   /********** Text Box *******/
- .text-block   {
-   width: 170px;
-   padding: 50px;
-   background:#ffffff7d;
-   height:390px;
-   position: relative;
-   bottom: 410px;
-   padding-left: 10px;
-   padding-right: 10px;
-     
+  .text-block {
+    width: 300px;
+    padding: 50px;
+    background: #ffffff7d;
+    height: 390px;
+    position: relative;
+    bottom: 410px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
  
- }
  
  header p {
    float: right;
@@ -83,7 +82,7 @@ html{
  
  nav ul {
    display: flex;
-   background-color: #fb8153;
+   background-color: #4b9ee0;
    list-style-type: none;
    margin: 0;
    padding: 0;
@@ -122,33 +121,27 @@ html{
  }
   /********** Text Box *******/
  .text-block h2 {
-   color: #FFC107;
-   font-size: 21px;
+   color: #4b9ee0;
    height:10px;
    
  }
   /********** Text Box Button *******/
  .container p {
-   color: #349efb;
-   font-size: 18px;
+   color: #000000;
    padding-left: 10px;
    padding-right: 10px;
- 
+   font-weight: bold;
  }
  
   .container button {
-   padding: 8px;
+   padding: 10px;
    text-align: center;
    max-width: 90%;
    color: #000000;
-   background-color: #fb8153;
-   text-decoration: none;
-   padding-left: 10px;
-   padding-right: 10px;
-   font-size: 20px;
-   border: none;
+   background-color: #4b9ee0;
+   font-size: 25px;
    border-radius: 4px;
- 
+   border-block-color: inherit;
  }
   /********** Reviews/Upgrades *******/
  .upgrade {
@@ -248,16 +241,85 @@ html{
    justify-content: space-around;
  
   }
+  
 
    footer {
-       font-size: 20px;
-   }
- }
- 
- /* 64em is also 1028px when basefont is 16px */
- @media only screen and (min-width: 64rem) {
-   .page {
-       width: 80%;
-   }
+   font-size: 20px;
    
+
   }
+}
+
+#inv-display {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  gap: 40px;
+}
+ 
+#inv-display li {
+margin-bottom: 1.5em;
+border: 1px #cbc6c640 solid;
+list-style-type: none;
+flex: 1 1 auto;
+border-radius: 0px;
+margin: 15px;
+background: #cbc6c60d;
+  
+}
+ 
+#inv-display li img {
+max-width: 100%;
+border-radius: 0px;
+
+/* For vehicle display in classification view */
+}
+#inv-display {
+flex-flow: row wrap;
+justify-content: flex-start;
+}
+
+#inv-display h2{
+font-size: 1rem;
+}
+
+#inv-display li {
+max-width: 200px;
+flex: 1 0 auto;
+text-align: center;
+height: 250px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+#inv-display div {
+width: 100%;
+}
+
+#inv-display a {
+font-size: 17px;
+margin: 7px;
+
+}
+#inv-display div.namePrice {
+font-size: 18px;
+margin: auto;
+height: 150px;
+
+
+
+
+}
+
+/* 64em is also 1028px when basefont is 16px */
+@media only screen and (min-width: 64rem) {
+.page {
+   width: 80%;
+
+
+
+
+}
+}
