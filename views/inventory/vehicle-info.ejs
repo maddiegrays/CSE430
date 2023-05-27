@@ -1,0 +1,12 @@
+<%# The content heading %>
+<% if (title) { %>
+    <h1><%= title %></h1> 
+    <% } else {
+        res.redirect('/')
+    } %>
+    
+    <%# The message block %>
+    <%# mesasges() %>
+    
+    <%# The vehicle info display %>
+    <%- infoView %>
