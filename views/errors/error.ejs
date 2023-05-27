@@ -1,0 +1,10 @@
+<%# The content heading %>
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { 
+        // Note: Redirects should be handled in routes/controllers, not views
+        res.redirect('/') 
+    } %>
+    
+    <%# The message %>
+   <%- message %>
