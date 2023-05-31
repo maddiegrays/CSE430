@@ -93,5 +93,8 @@ Util.buildVehicleInfoGrid = async function(data){
     infoView += '<p class="notice">Sorry, no matching vehicle could be found for the supplied id.</p>'
   }
   return infoView
+
 }
+  
+
 module.exports = Util

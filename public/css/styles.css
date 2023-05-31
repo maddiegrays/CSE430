@@ -74,7 +74,7 @@ html{
    float: right;
  }
  
-  /********** Nav *******/
+  /********** Small Nav *******/
  nav {
    clear: both;
    font-size: 0.5em;
@@ -134,14 +134,14 @@ html{
  }
  
   .container button {
-   padding: 10px;
+   padding: 5px;
    text-align: center;
-   max-width: 90%;
    color: #000000;
    background-color: #4b9ee0;
-   font-size: 25px;
+   font-size: 19px;
    border-radius: 4px;
    border-block-color: inherit;
+   
  }
   /********** Reviews/Upgrades *******/
  .upgrade {
@@ -250,6 +250,8 @@ html{
   }
 }
 
+
+
 #inv-display {
   margin: 0;
   display: flex;
@@ -308,18 +310,365 @@ font-size: 18px;
 margin: auto;
 height: 150px;
 
-
-
+/* For login form */
 
 }
+/* account text */
+div#tools a {
+font-size: 25px;
+
+}
+body {
+  font-family: sans-serif;
+  font-size: 25px;
+  background-image: url("/images/site/checkerboard.jpg");
+  min-width: 350px;
+}
+
+div#wrapper {
+      width: 95%;
+      border: #4b9ee0 solid 5px;
+      border-radius: 10px;
+      margin: 0 auto;
+      margin-top: 20px;
+
+  }
+
+main {
+  max-width: 100%;
+  background-color: #ffffff;
+  
+}
+
+/********** Header *******/
+header {
+  padding: 80px;
+ background-color: #ffffff;
+
+}
+
+
+
+
+
+/* Nav */
+
+nav {
+font-size: 25px;
+
+}
+
+nav ul {
+  display: flex;
+  background-color: #4b9ee0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  justify-content: space-evenly;
+}
+
+nav li {
+  display: inline;
+}
+
+nav li a {
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: white;
+  color: #3a3a3a;
+  text-decoration: none;
+}
+
+/* login form */
+
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.form-signin {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #cbc6c60d;
+  border: 1px #cbc6c640 solid;
+}
+
+.form-signin-heading {
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="text"] {
+  margin-bottom: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+
+
+/* Small View */
 
 /* 64em is also 1028px when basefont is 16px */
 @media only screen and (min-width: 64rem) {
-.page {
-   width: 80%;
+  .page {
+    width: 95%;
+    border: #4b9ee0 solid 5px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+nav {
+    font-size: 1em;
+ 
+}
+nav ul {
+ font-size: 1em;
+
+}
+
+.container h2 {
+    position: absolute;
+    top: -28px;
+    left: 10px;
+}
+
+.container p {
+    top: 12px;
+    left: 10px;
+}
+
+.button {
+    position: absolute;
+    top: 116px;
+    left: 10px;
+    width: 150px;
+}
 
 
+.homepage-flex {
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-around;
+
+}
+
+
+footer {
+font-size: 20px;
 
 
 }
 }
+
+
+
+#inv-display {
+margin: 0;
+display: flex;
+flex-direction: column;
+padding: 50px;
+gap: 40px;
+}
+
+#inv-display li {
+margin-bottom: 1.5em;
+border: 1px #cbc6c640 solid;
+list-style-type: none;
+flex: 1 1 auto;
+border-radius: 0px;
+margin: 15px;
+background: #cbc6c60d;
+
+}
+
+#inv-display li img {
+max-width: 100%;
+border-radius: 0px;
+
+/* For vehicle display in classification view */
+}
+#inv-display {
+flex-flow: row wrap;
+justify-content: flex-start;
+}
+
+#inv-display h2{
+font-size: 1rem;
+}
+
+#inv-display li {
+max-width: 200px;
+flex: 1 0 auto;
+text-align: center;
+height: 250px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+#inv-display div {
+width: 100%;
+}
+
+#inv-display a {
+font-size: 17px;
+margin: 7px;
+
+}
+#inv-display div.namePrice {
+font-size: 18px;
+margin: auto;
+height: 150px;
+
+/* For login form */
+
+}
+/* account text */
+div#tools a {
+font-size: 25px;
+
+}
+body {
+font-family: sans-serif;
+font-size: 25px;
+background-image: url("/images/site/checkerboard.jpg");
+min-width: 350px;
+}
+
+div#wrapper {
+   width: 95%;
+   border: #4b9ee0 solid 5px;
+   border-radius: 10px;
+   margin: 0 auto;
+   margin-top: 20px;
+
+}
+
+main {
+max-width: 100%;
+background-color: #ffffff;
+
+}
+
+/********** Header *******/
+header {
+padding: 80px;
+background-color: #ffffff;
+
+}
+
+
+
+
+
+/* Nav */
+
+nav {
+font-size: 25px;
+
+}
+
+nav ul {
+display: flex;
+background-color: #4b9ee0;
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+justify-content: space-evenly;
+}
+
+nav li {
+display: inline;
+}
+
+nav li a {
+display: block;
+color: #000000;
+text-align: center;
+padding: 10px 16px;
+text-decoration: none;
+}
+
+nav li a:hover {
+background-color: white;
+color: #3a3a3a;
+text-decoration: none;
+}
+
+/* login form */
+
+.wrapper {
+margin-top: 200px;
+margin-bottom: 300px;
+}
+
+.form-signin {
+max-width: 420px;
+padding: 30px 38px 66px;
+margin: 0 auto;
+background-color: #cbc6c60d;
+border: 5px #cbc6c640 solid;
+}
+
+.form-signin-heading {
+text-align: center;
+margin-bottom: 30px;
+}
+
+input.form-control {
+position: relative;
+font-size: 16px;
+height: auto;
+padding: 10px;
+width: 100%;
+
+}
+button.button-login {
+width: 100%;
+padding: 5px;
+
+}
+
+
+input[type="text"] {
+margin-bottom: 0px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+margin-bottom: 20px;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+a.signup-link {
+padding: 100px;
+
+}
+

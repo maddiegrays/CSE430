@@ -34,6 +34,8 @@ async function getVehicleInfoByInventorynId(inventory_id) {
   } catch (error) {
     console.error("get vehicle info by id error " + error)
   }
+
+
 }
 
 module.exports = {getClassifications, getInventoryByClassificationId, getVehicleInfoByInventorynId};

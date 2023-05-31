@@ -1,7 +1,4 @@
-/* ******************************************
- * This server.js file is the primary file of the 
- * application. It is used to control the project.
- *******************************************/
+
 /* ***********************
  * Require Statements
  *************************/
@@ -27,11 +24,6 @@ app.set("layout", "./layouts/layout")
  *************************/
 app.use(require("./routes/static"))
 
-/*Example of the route to deliver the home view*/
-//This is the initial route that was used
-// app.get("/", function(req, res) {
-//   res.render("index", {title: "Home"})
-// })
 
 //Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
@@ -39,9 +31,13 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 //Inventory routes
 app.use("/inv", require("./routes/inventoryRoute"))
 
-// File Not Found Route - must be last route in list
+//Account Routes
+app.use("/account", require("./routes/accountRoute"))
+
+
+
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'});
+  next({status: ''});
 });
 
 
