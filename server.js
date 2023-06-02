@@ -23,6 +23,8 @@ app.set("layout", "./layouts/layout")
 /* ***********************
  * Middleware
  * ************************/
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -79,8 +81,7 @@ app.use(async (err, req, res, next) => {
     message,
     nav
   })
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+  
 
 })
 
