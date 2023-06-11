@@ -1,6 +1,5 @@
 /* ***********************
- * Account Controller
-Unit 4, Deliver the login view
+ * Deliver the login view
  * ************************/
 const utilities = require('../utilities')
 const accountModel = require('../models/account-model')
@@ -16,8 +15,7 @@ async function buildLogin(req, res, next) {
 }
 
 /* ***********************
- * Account Controller
-Unit 4, Deliver the register account view*/
+ * Deliver the register account view*/
 
 async function buildRegister(req, res, next) {
     let nav = await utilities.getNav()

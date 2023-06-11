@@ -4,11 +4,11 @@ const invModel = require("../models/inventory-model");
 const validate = {}
 
 /*  **********************************
- *  Add classification Data Validation Rules
+ *  Add classification Data Validation Directives
  * ********************************* */
 validate.addVehicleClassRules = () => {
     return [
-        // name is required and must be string
+        // name is required 
         body("name")
             .trim()
             .isLength({ min: 3, max: 25 })
@@ -37,7 +37,7 @@ validate.checkAddVehicleClassData = async (req, res, next) => {
 }
 
 /*  **********************************
- *  Add inventory Data Validation Rules
+ *  Add inventory Data Validation Directives
  * ********************************* */
 validate.addInventoryRules = () => {
     return [

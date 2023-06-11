@@ -5,27 +5,25 @@ const accountModel = require("../models/account-model")
 
 
 /*  **********************************
- *  Registration Data Validation Rules
+ *  Registration Data Validation Directive  
  * ********************************* */
 validate.registationRules = () => {
     return [
-      // firstname is required and must be string
       body("account_firstname")
         .trim()
         .isLength({ min: 1 })
-        .withMessage("Please provide a first name."), // on error this message is sent.
+        .withMessage("Please enter a first name."), // error message.
   
-      // lastname is required and must be string
       body("account_lastname")
         .trim()
         .isLength({ min: 2 })
-        .withMessage("Please provide a last name."), // on error this message is sent.
+        .withMessage("Please enter a last name."), // error this message.
   
-        // valid email is required and cannot already exist in the database
+        
 body("account_email")
 .trim()
 .isEmail()
-.normalizeEmail() // refer to validator.js docs
+.normalizeEmail() 
 .withMessage("A valid email is required.")
 .custom(async (account_email) => {
   const emailExists = await accountModel.checkExistingEmail(account_email)
@@ -34,7 +32,7 @@ body("account_email")
   }
 }),
   
-      // password is required and must be strong password
+      // password required 
       body("account_password")
         .trim()
         .isStrongPassword({

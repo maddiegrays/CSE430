@@ -3,7 +3,7 @@ const Util = {}
 
 
 /* ************************
- * Constructs the nav HTML unordered list
+ * Builds the nav HTML unordered list
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
@@ -36,7 +36,7 @@ module.exports = Util
 
 
 /* **************************************
-* Build the classification view HTML
+* Builds the classification view HTML
 * ************************************ */
 Util.buildClassificationGrid = async function(data){
   let grid
@@ -69,10 +69,9 @@ Util.buildClassificationGrid = async function(data){
 }
 
 
-//Step
 
 /* **************************************
-* Build the vehicle info view HTML
+* Builds the vehicle info view HTML
 * ************************************ */
 Util.buildVehicleInfoGrid = async function(data){
   let infoView 

@@ -19,11 +19,8 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
-
-
-//step 
 /* ***************************
- *  Deliver Item Detail view
+ *  Deliver Inventory view
  * ************************** */
 invCont.buildByVehicleInventoryId = async function (req, res, next) {
   const inventory_id = req.params.inventoryId
@@ -38,7 +35,7 @@ invCont.buildByVehicleInventoryId = async function (req, res, next) {
 }
 
 /* ***************************
- *  Management view
+ * Deliver Management view
  * ************************** */
 invCont.buildManagement = async function (req, res) {
   let nav = await utilities.getNav()
@@ -50,7 +47,7 @@ invCont.buildManagement = async function (req, res) {
 }
 
 /* ***************************
- *  Add new classification view
+ *  Deliver classification view
  * ************************** */
 invCont.buildAddClassification = async function (req, res) {
   let nav = await utilities.getNav()
@@ -68,7 +65,7 @@ invCont.createNewClassification = async function (req, res) {
   let nav = await utilities.getNav()
   req.flash(
       "info",
-      `Congratulations, you\'ve created a new classification ${name}.`
+      `Congratulations! You\'ve created a new classification ${name}.`
   )
   res.redirect("/inv")
 }

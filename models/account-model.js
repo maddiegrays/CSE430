@@ -1,7 +1,7 @@
 const pool = require("../database/index")
 
 /* *****************************
-/*Register new account Unit 4
+/* Register new account 
 * *************************** */
 async function registerAccount(account_firstname, account_lastname, account_email, account_password){
     try {
@@ -14,7 +14,7 @@ async function registerAccount(account_firstname, account_lastname, account_emai
 
 
   /* **********************
- *   Check for existing email
+ *   Search for Existing Email
  * ********************* */
 async function checkExistingEmail(account_email){
   try {

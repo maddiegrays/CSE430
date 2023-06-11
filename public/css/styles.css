@@ -757,7 +757,7 @@ div.login-container {
 
        /* add inventory make button */
        input#make {
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
         }
 
@@ -792,7 +792,7 @@ div.login-container {
 
       /* add inventory model button */
       input#model {
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
         }
 
@@ -828,7 +828,7 @@ div.login-container {
 
       /* description box */
       textarea#description {
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
         }
 
@@ -864,7 +864,7 @@ div.login-container {
        /* image path */
 
        input#image-path {
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
         }
 
@@ -902,7 +902,7 @@ div.login-container {
 
         /* thumbnail path */
         input#thumbnail-path {
-          text-align: center;
+          text-align: left;
           margin-bottom: 30px;
           }
   
@@ -939,7 +939,7 @@ div.login-container {
 
          /* price */
          input#price {
-          text-align: center;
+          text-align: left;
           margin-bottom: 30px;
           }
   
@@ -975,7 +975,7 @@ div.login-container {
 
           /* year */
           input#year {
-            text-align: center;
+            text-align: left;
             margin-bottom: 30px;
             }
     
@@ -1013,7 +1013,7 @@ div.login-container {
         /* miles */
 
         input#miles {
-          text-align: center;
+          text-align: left;
           margin-bottom: 30px;
           }
   
@@ -1051,7 +1051,7 @@ div.login-container {
          /* color */
 
          input#color {
-          text-align: center;
+          text-align: left;
           margin-bottom: 30px;
           }
   

@@ -1,16 +1,10 @@
-/* ******************************************
- * This server.js file is the primary file of the 
- * application. It is used to control the project.
- *******************************************/
+
 /* ***********************
  * Require Statements
  *************************/
 
-// This is the one shown in the video by prof  https://www.youtube.com/watch?v=KESjrocakuI
-//Unit4 Week 7 & 8 additions
 const session = require("express-session")
 const pool = require('./database/')
-
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
@@ -18,8 +12,6 @@ const app = express()
 const baseController = require("./controllers/baseController") //Added a new require statement to bring the base controller into scope
 const utilities = require("./utilities/")  // Added this line to bring the utilities into scope
 const bodyParser = require("body-parser")
-
-
 
 
 
@@ -56,7 +48,7 @@ app.use(function(req, res, next){
 
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })) 
 
 app.set("view engine", "ejs")
 app.use(expressLayouts)
@@ -70,17 +62,17 @@ app.set("layout", "./layouts/layout")
  *************************/
 app.use(require("./routes/static"))
 
-//Index route - Unit 3 
+//Index route 
 app.get("/", utilities.handleErrors(baseController.buildHome))
 
-//Inventory routes -  Unit 3
+//Inventory routes 
 app.use("/inv", require("./routes/inventoryRoute"))
 
 //Account Routes
 app.use("/account", require("./routes/accountRoute"))
 
 
-// File Not Found Route 
+// File Not Found  
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'});
 });
@@ -107,15 +99,10 @@ app.use(async (err, req, res, next) => {
 
 
 /* ***********************
- * Local Server Information
- * Values from .env (environment) file
+ * Local Server
  *************************/
 const port = process.env.PORT
 const host = process.env.HOST
-
-/* ***********************
- * Log statement to confirm server operation
- *************************/
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
