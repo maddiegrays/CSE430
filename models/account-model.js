@@ -1,8 +1,7 @@
-const pool = require("../database/")
-
+const pool = require("../database/index")
 
 /* *****************************
-*   Register new account
+/*Register new account Unit 4
 * *************************** */
 async function registerAccount(account_firstname, account_lastname, account_email, account_password){
     try {
@@ -12,6 +11,7 @@ async function registerAccount(account_firstname, account_lastname, account_emai
       return error.message
     }
   }
+
 
   /* **********************
  *   Check for existing email
@@ -27,6 +27,4 @@ async function checkExistingEmail(account_email){
 }
 
 
-
-
-  module.exports = { registerAccount }
+  module.exports = {registerAccount, checkExistingEmail}

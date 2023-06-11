@@ -1,6 +1,7 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
 
+
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
@@ -31,6 +32,9 @@ Util.getNav = async function (req, res, next) {
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
+module.exports = Util
+
+
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
@@ -46,12 +50,13 @@ Util.buildClassificationGrid = async function(data){
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
       +' on CSE Motors" /></a>'
       grid += '<div class="namePrice">'
+      grid += '<hr />'
       grid += '<h2>'
       grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
       grid += '</h2>'
-      grid += '<span class="amount">$' 
+      grid += '<span>$' 
       + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
       grid += '</div>'
       grid += '</li>'
@@ -62,6 +67,9 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+
+//Step
 
 /* **************************************
 * Build the vehicle info view HTML
@@ -93,8 +101,5 @@ Util.buildVehicleInfoGrid = async function(data){
     infoView += '<p class="notice">Sorry, no matching vehicle could be found for the supplied id.</p>'
   }
   return infoView
-
 }
-  
-
 module.exports = Util

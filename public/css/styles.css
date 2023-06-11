@@ -623,12 +623,12 @@ text-decoration: none;
 
 /* login form */
 
-.wrapper {
+.wrapper  {
 margin-top: 200px;
 margin-bottom: 300px;
 }
 
-.form-signin {
+.form-signin  {
 max-width: 420px;
 padding: 30px 38px 66px;
 margin: 0 auto;
@@ -672,3 +672,420 @@ padding: 0px;
 
 }
 
+/* new class */
+div.login-container {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #cbc6c60d;
+  border: 5px #cbc6c640 solid;
+  }
+
+  div.login-container {
+    text-align: center;
+    margin-bottom: 30px;
+    }
+
+    input {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      width: 100%;
+      
+      }
+      button  {
+      width: 100%;
+      padding: 5px;
+      
+      }
+      
+      
+      input {
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      
+      input {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 5px;
+
+      }
+      a.signup-link {
+      padding: 0px;
+      
+      }
+      /* add inventory costum button */
+      select#classification {
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+        select#classification {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      width: 100%;
+      
+      }
+      select#classification  {
+      width: 100%;
+      padding: 5px;
+      
+      }
+      
+      
+      select#classification {
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      
+      select#classification {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 5px;
+
+      }
+
+      
+
+       /* add inventory make button */
+       input#make {
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+      input#make {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      width: 100%;
+      
+      }
+      input#make  {
+      width: 100%;
+      padding: 5px;
+      
+      }
+      
+      
+      input#make {
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      
+      input#make {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 5px;
+
+      }
+
+      /* add inventory model button */
+      input#model {
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+      input#model {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      width: 100%;
+      
+      }
+      input#model  {
+      width: 100%;
+      padding: 5px;
+      
+      }
+      
+      
+      input#model {
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      
+      input#model {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 5px;
+
+      }
+
+
+      /* description box */
+      textarea#description {
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+      textarea#description {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      width: 100%;
+      
+      }
+      textarea#description  {
+      width: 100%;
+      padding: 5px;
+      
+      }
+      
+      
+      textarea#description {
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      
+      textarea#description {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 5px;
+
+      }
+
+       /* image path */
+
+       input#image-path {
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+      input#image-path {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      width: 100%;
+      
+      }
+      input#image-path  {
+      width: 100%;
+      padding: 5px;
+      
+      }
+      
+      
+      input#image-path {
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      
+      input#image-path {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 5px;
+
+      }
+
+
+
+
+        /* thumbnail path */
+        input#thumbnail-path {
+          text-align: center;
+          margin-bottom: 30px;
+          }
+  
+          input#thumbnail-path {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        width: 100%;
+        
+        }
+        input#thumbnail-path  {
+        width: 100%;
+        padding: 5px;
+        
+        }
+        
+        
+        input#thumbnail-path {
+        margin-bottom: 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+        
+        input#thumbnail-path{
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-radius: 5px;
+  
+        }
+
+
+
+         /* price */
+         input#price {
+          text-align: center;
+          margin-bottom: 30px;
+          }
+  
+          input#price {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        width: 100%;
+        
+        }
+        input#price  {
+        width: 100%;
+        padding: 5px;
+        
+        }
+        
+        
+        textarea#description {
+        margin-bottom: 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+        
+        input#price {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-radius: 5px;
+  
+        }
+
+
+          /* year */
+          input#year {
+            text-align: center;
+            margin-bottom: 30px;
+            }
+    
+            input#year {
+          position: relative;
+          font-size: 16px;
+          height: auto;
+          padding: 10px;
+          width: 100%;
+          
+          }
+          input#year  {
+          width: 100%;
+          padding: 5px;
+          
+          }
+          
+          
+          input#year {
+          margin-bottom: 0px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          }
+          
+          input#year {
+          margin-bottom: 20px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-radius: 5px;
+    
+          }
+
+
+
+        /* miles */
+
+        input#miles {
+          text-align: center;
+          margin-bottom: 30px;
+          }
+  
+          input#miles {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        width: 100%;
+        
+        }
+        input#miles  {
+        width: 100%;
+        padding: 5px;
+        
+        }
+        
+        
+        input#miles {
+        margin-bottom: 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+        
+        input#miles {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-radius: 5px;
+  
+        }
+
+
+
+         /* color */
+
+         input#color {
+          text-align: center;
+          margin-bottom: 30px;
+          }
+  
+        input#color {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        width: 100%;
+        
+        }
+        input#color  {
+        width: 100%;
+        padding: 5px;
+        
+        }
+        
+        
+        input#color {
+        margin-bottom: 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        }
+        
+        input#color {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-radius: 5px;
+  
+        }
+
+          /* inventory submit*/
+          button {
+          background-color: #4b9ee0;
+      
+            }

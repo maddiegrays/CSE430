@@ -1,21 +1,33 @@
-
+/* ******************************************
+ * This server.js file is the primary file of the 
+ * application. It is used to control the project.
+ *******************************************/
 /* ***********************
  * Require Statements
  *************************/
+
+// This is the one shown in the video by prof  https://www.youtube.com/watch?v=KESjrocakuI
+//Unit4 Week 7 & 8 additions
 const session = require("express-session")
 const pool = require('./database/')
 
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
-require("dotenv").config()
+const env = require("dotenv").config()
 const app = express()
 const baseController = require("./controllers/baseController") //Added a new require statement to bring the base controller into scope
 const utilities = require("./utilities/")  // Added this line to bring the utilities into scope
 const bodyParser = require("body-parser")
 
+
+
+
+
+
 /* ***********************
  * View Engine and Templates
  *************************/
+
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout")
@@ -23,8 +35,6 @@ app.set("layout", "./layouts/layout")
 /* ***********************
  * Middleware
  * ************************/
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -44,25 +54,35 @@ app.use(function(req, res, next){
 })
 
 
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "./layouts/layout")
+
+
+
+
 /* ***********************
  * Routes
  *************************/
 app.use(require("./routes/static"))
 
-
-//Index route
+//Index route - Unit 3 
 app.get("/", utilities.handleErrors(baseController.buildHome))
 
-//Inventory routes
+//Inventory routes -  Unit 3
 app.use("/inv", require("./routes/inventoryRoute"))
 
 //Account Routes
 app.use("/account", require("./routes/accountRoute"))
 
 
-
+// File Not Found Route 
 app.use(async (req, res, next) => {
-  next({status: ''});
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'});
 });
 
 
@@ -75,15 +95,15 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  let message;
+  if(err.status === 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message,
     nav
   })
-  
-
 })
+
 
 
 /* ***********************
