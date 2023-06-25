@@ -5,13 +5,16 @@
 
 const session = require("express-session")
 const pool = require('./database/')
+
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const app = express()
 const baseController = require("./controllers/baseController") //Added a new require statement to bring the base controller into scope
-const utilities = require("./utilities/")  // Added this line to bring the utilities into scope
+const utilities = require("./utilities/index")  // Added this line to bring the utilities into scope
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")  //Unit 5
+
 
 
 
@@ -20,9 +23,8 @@ const bodyParser = require("body-parser")
  * View Engine and Templates
  *************************/
 
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout")
+
+
 
 /* ***********************
  * Middleware
@@ -48,7 +50,12 @@ app.use(function(req, res, next){
 
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })) 
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.use(cookieParser())  //Unit 5
+app.use(utilities.checkJWTToken) //Unit 5
+
+
 
 app.set("view engine", "ejs")
 app.use(expressLayouts)
@@ -62,17 +69,16 @@ app.set("layout", "./layouts/layout")
  *************************/
 app.use(require("./routes/static"))
 
-//Index route 
+//Index route - Unit 3 
 app.get("/", utilities.handleErrors(baseController.buildHome))
 
-//Inventory routes 
+//Inventory routes -  Unit 3
 app.use("/inv", require("./routes/inventoryRoute"))
 
-//Account Routes
+//Account routes - Unit 4
 app.use("/account", require("./routes/accountRoute"))
 
-
-// File Not Found  
+// File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'});
 });
@@ -81,7 +87,6 @@ app.use(async (req, res, next) => {
 
 /* ***********************
 * Express Error Handler
-* Place after all other middleware
 * Error Handling
 *************************/
 app.use(async (err, req, res, next) => {
@@ -98,11 +103,9 @@ app.use(async (err, req, res, next) => {
 
 
 
-/* ***********************
- * Local Server
- *************************/
 const port = process.env.PORT
 const host = process.env.HOST
+
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })

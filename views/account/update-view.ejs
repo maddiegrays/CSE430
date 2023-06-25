@@ -1,0 +1,57 @@
+<% if (title) { %>
+    <h1><%= title %></h1> 
+    <% } else {
+        res.redirect('/')
+    } %>
+
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+<p ><%- messages() %></p>
+<div class="main-container" style="display:flex; justify-content: space-evenly; align-items: baseline">
+    <div class="login-container">
+        <h3>Account Update</h3>
+        <form id="update" action="/account/update-information" method="post">
+
+            <label for="fname">First Name</label>
+            <input id="fname" type="firstname" name="account_firstname" placeholder="EnterFirst Name" required value="<%= locals.account_firstname %>">
+          
+            <label for="lname">Last Name</label>
+            <input id="lname" type="lastname" name="account_lastname" placeholder="Enter Last Name" required value="<%= locals.account_lastname %>">
+          
+          <label for="email">Email</label>
+           <input id="email" type="email" name="account_email" placeholder="Enter your email"  required value="<%= locals.account_email %>">
+
+           <input id="id" type="hidden" name="account_id" value="<%= locals.account_id %>">
+           <button type="submit">Update</button>
+       </form>
+   </div>
+    <div class="login-container">
+        <h3>Change password</h3>
+        <form id="change-password" action="/account/update-password" method="post">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="account_password" placeholder="Password" id="pword" pattern="" required>
+            
+            <p class="password-instruction">Password must be minimum of 6 characters and includes 1 capital letter,
+                1 number and 1 special character.
+            </p>
+            <input id="id" type="hidden" name="account_id" value="<%= locals.account_id %>">
+            <button type="submit">Change password</button>
+        </form>
+    </div>
+</div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>

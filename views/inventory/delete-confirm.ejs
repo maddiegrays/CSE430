@@ -1,0 +1,35 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<p><%- messages() %></p>
+<% if (errors) { %>
+    <% errors.array().forEach(error => { %>
+        <p class="form-error-msg"><%= error.msg %></p>
+    <%  }) %>
+<% } %>
+<div class="main-container">
+    <div class="login-container">
+       
+        <form action="/inv/delete" method="post">
+            <label for="make">Make</label>
+            <input id="make" type="text" name="inv_make" placeholder="Make must contain minimum of 3 letters" value="<%= inventory.inv_make %>" readonly>
+
+            <label for="model">Model</label>
+            <input id="model" type="text" name="inv_model" placeholder="Model must contain minimum of 3 letters" value="<%=inventory.inv_model %>" readonly>
+
+            <label for="price">Price</label>
+            <input id="price" type="text" name="inv_price" placeholder="Must be decimal" value="<%= inventory.inv_price %>" readonly>
+
+            <label for="year">Year</label>
+            <input id="year" type="text" name="inv_year" placeholder="Must be 4 digit year" value="<%= inventory.inv_year %>" readonly>
+
+            <input id="inv-id" type="hidden" name="inv_id" value="<%= inventory.inv_id %>" pattern="^[0-9]*$" readonly>
+            <button type="submit">Delete vehicle</button>
+            <br><p style="color: #000000">Confirm</p>
+       </form>
+ 
+   </div>
+</div>

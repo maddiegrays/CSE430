@@ -1,0 +1,54 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<p><%- messages() %></p>
+<% if (errors) { %>
+    <% errors.array().forEach(error => { %>
+        <p class="form-error-msg"><%= error.msg %></p>
+    <%  }) %>
+<% } %>
+<div class="main-container">
+    <div class="login-container">
+       
+        <form action="/inv/update" method="post" id="updateForm">
+            <label for="classification">Choose a category:</label>
+            <%- select %>
+            <label for="make">Make</label>
+            <input id="make" type="text" name="inv_make" placeholder="Make must contain minimum of 3 letters" value="<%= inventory.inv_make %>" pattern="[a-zA-Z]{3,25}$" required>
+
+            <label for="model">Model</label>
+            <input id="model" type="text" name="inv_model" placeholder="Model must contain minimum of 3 letters" value="<%=inventory.inv_model %>" pattern="[a-zA-Z]{3,25}$" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="inv_description" rows="3" cols="50" pattern="[a-zA-Z]{10,500}$" required><%=inventory.inv_description %></textarea>
+
+            <label for="image-path">Image Path</label>
+            <input id="image-path" type="text" name="inv_image" placeholder="Must be a path" value="<%= inventory.inv_image %>" pattern="/[a-zA-Z].*$" required>
+
+            <label for="thumbnail-path">Thumbnail Path</label>
+            <input id="thumbnail-path" type="text" name="inv_thumbnail" placeholder="Must be a path" value="<%= inventory.inv_thumbnail %>" pattern="/[a-zA-Z].*$" required>
+
+            <label for="price">Price</label>
+            <input id="price" type="text" name="inv_price" placeholder="Must be decimal" value="<%= inventory.inv_price %>" pattern="^[0-9]*$" required>
+
+            <label for="year">Year</label>
+            <input id="year" type="text" name="inv_year" placeholder="Must be 4 digit year" value="<%= inventory.inv_year %>" pattern="[1-2]{1}[0-9]{3}$" required>
+
+            <label for="miles">Miles</label>
+            <input id="miles" type="text" name="inv_miles" placeholder="Must be Integer" value="<%= inventory.inv_miles %>" pattern="^[0-9]*$" required>
+
+            <label for="color">Color</label>
+            <input id="color" type="text" name="inv_color" placeholder="Must be alphabet" value="<%= inventory.inv_color %>" pattern="^[a-zA-Z]*$" required>
+            <input id="inv-id" type="hidden" name="inv_id" value="<%= inventory.inv_id %>" pattern="^[0-9]*$">
+            <button type="submit" disabled>Update vehicle</button>
+       </form>
+ 
+   </div>
+</div>
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+
+<script src="../../js/inv-update.js"></script>

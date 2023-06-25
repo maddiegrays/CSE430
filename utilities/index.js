@@ -1,15 +1,18 @@
 const invModel = require("../models/inventory-model")
+const accModel = require("../models/account-model")
 const Util = {}
+const jwt = require("jsonwebtoken") //Unit 5
+const env = require("dotenv").config()    //Unit 5
 
 
 /* ************************
- * Builds the nav HTML unordered list
+ * Constructs the nav HTML unordered list
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
-  data.rows.forEach((row) => {
+  data.forEach((row) => {
     list += "<li>"
     list +=
       '<a href="/inv/type/' +
@@ -32,12 +35,34 @@ Util.getNav = async function (req, res, next) {
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
-module.exports = Util
+/* ****************************************
+* Middleware to check token validity  Unit 5
+**************************************** */
+Util.checkJWTToken = (req, res, next) => {
+  if (req.cookies.jwt) {
+   jwt.verify(
+    req.cookies.jwt,
+    process.env.ACCESS_TOKEN_SECRET,
+    function (err, accountData) {
+     if (err) {
+        req.flash("Please log in")
+        res.clearCookie("jwt")
+        return res.redirect("/account/login")
+     }
+     res.locals.accountData = accountData
+     res.locals.loggedin = 1
+     next()
+    })
+  } else {
+      next()
+  }
+ }
 
 
 /* **************************************
-* Builds the classification view HTML
+* Build the classification view HTML
 * ************************************ */
+
 Util.buildClassificationGrid = async function(data){
   let grid
   if(data.length > 0){
@@ -70,8 +95,10 @@ Util.buildClassificationGrid = async function(data){
 
 
 
+//Step
+
 /* **************************************
-* Builds the vehicle info view HTML
+* Build the vehicle info view HTML
 * ************************************ */
 Util.buildVehicleInfoGrid = async function(data){
   let infoView 
@@ -101,4 +128,78 @@ Util.buildVehicleInfoGrid = async function(data){
   }
   return infoView
 }
+
+/***************************************
+    * Build the classification list view HTML
+* ************************************ */
+
+Util.buildClassificationList = async function(){
+  let classification = await invModel.getClassifications()
+  let list
+  if(classification.length > 0){
+    list = '<select id="classificationList" name="classification_id">'
+    classification.forEach(item => {
+      list += '<option value="' + item.classification_id +'">'
+      list += item.classification_name
+      list += '</option>'
+    })
+    list += '</select>'
+  } else {
+    list += '<p class="notice">No classification.</p>'
+  }
+  return list
+}
+
+/* ****************************************
+ *  Check Login  Unit 5
+ * ************************************ */
+Util.checkLogin = (req, res, next) => {
+  if (res.locals.loggedin) {
+    next()
+  } else {
+    req.flash("notice", "Please log in.")
+    return res.redirect("/account/login")
+  }
+}
+
+/* ****************************************
+ *  Middleware to Check user account type
+ * ************************************ */
+Util.checkUserAccountType = (req, res, next) => {
+  if (['Admin', 'Employee'].includes(res.locals.accountData.account_type)) {
+    next()
+  } else {
+    req.flash("notice", "Only Admins and Employees are allowed to visit this route.")
+    return res.redirect("/account")
+  }
+}
+
+Util.checkExistingEmail = async (req, res, next) => {
+  const account_email = req.body.account_email;
+  const result = await accModel.checkExistingEmail(account_email)
+  // if(result < 1 || (result === 1 && req.body.account_email === res.locals.accountData.account_email)){
+  //   next()
+  // }
+  if(result < 1){
+    next()
+  }
+  else {
+    req.flash("notice", "Email already exists.")
+    return res.redirect("/account/update-information")
+  }
+}
+
+/* ****************************************
+* Middleware to check token validity  Unit 5
+**************************************** */
+Util.logout = (req, res, next) => {
+  if (req.cookies.jwt) {
+    res.locals.accountData = null
+    res.locals.loggedin = 0
+    req.flash("Logged out")
+    res.clearCookie("jwt")
+    return res.redirect("/")
+  }
+}
+
 module.exports = Util
