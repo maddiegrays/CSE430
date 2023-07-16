@@ -1,7 +1,7 @@
 const pool = require("../database/index")
 
 /* *****************************
-/*Register new account 
+/*Register new account Unit 4
 * *************************** */
 async function registerAccount(account_firstname, account_lastname, account_email, account_password){
     try {
@@ -20,14 +20,14 @@ async function checkExistingEmail(account_email){
   try {
     const sql = "SELECT * FROM account WHERE account_email = $1"
     const email = await pool.query(sql, [account_email])
-    return email.rowCount
+    return email.rows[0]
   } catch (error) {
     return error.message
   }
 }
 
 /* *****************************
-* Return account data using email address 
+* Return account data using email address Unit 5
 * ***************************** */
 async function getAccountByEmail (account_email) {
   try {

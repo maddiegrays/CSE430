@@ -1,0 +1,55 @@
+
+<% if (errors) { %>
+    <div class="errors">
+      <% errors.array().forEach((error) => { %>
+        <p><%= error.msg %></p>
+      <% }) %>
+    </div>
+  <% } %>
+
+
+  
+
+<p ><%- messages() %></p>
+<div class="content-container-two">
+    <% if (locals.errors) { %>
+        <div class="errors" style="background-color: #00000099; padding: 10px;">
+            <% locals.errors.array().forEach((error) => { %>
+                <p><%= error.msg %></p>
+            <% }) %>
+        </div>
+    <% } %>
+    <%if(locals.accountData.account_type === 'Client') {%>
+        <h2>Inbox</h2>
+        <ul>
+            <li><a href="/message/new-view">Create new message</a></li>
+            <li><a href="/message/archived-messages/<%= locals.accountData.account_id %>">View <%= locals.archived_message_count %> Archived messages</a></li>
+        </ul>
+    <%}%>
+    <%if(locals.accountData.account_type === 'Admin' || locals.accountData.account_type === 'Employee') {%>
+        <h2>Happy <%= locals.accountData.account_type %>  Inbox</h2>
+        <ul>
+            <li><a href="/message/new-view">Create new message</a></li>
+            <li><a href="/message/archived-messages/<%= locals.accountData.account_id %>">View <%= locals.archived_message_count %> Archived messages</a></li>
+        </ul>
+    <%}%>
+    <table style="width: auto; min-width: 40%;">
+        <tr>
+          <th>Recieved</th>
+          <th>Subject</th>
+          <th>From</th>
+          <th>Read</th>
+        </tr>
+        <% if (unread) { %>
+            
+              <% unread.forEach((message) => { %>
+                <tr>
+                    <td><%= new Date(message.message_created).toLocaleString() %></td>
+                    <td><a href="/message/read/<%=message.message_id%>"><%= message.message_subject %></a></td>
+                    <td><%= message.account_firstname %> <%= message.account_lastname %></td>
+                    <td><%= message.message_read %></td>
+                </tr>
+              <% }) %>
+          <% } %>
+      </table>
+</div>

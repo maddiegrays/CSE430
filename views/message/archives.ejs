@@ -1,0 +1,42 @@
+
+<% if (errors) { %>
+    <div class="errors">
+      <% errors.array().forEach((error) => { %>
+        <p><%= error.msg %></p>
+      <% }) %>
+    </div>
+  <% } %>
+
+
+  
+
+<p ><%- messages() %></p>
+
+<div class="content-container-two">
+    <%if(locals.accountData.account_type === 'Client') {%>
+        <h2>Basic Client Archives</h2>
+    <%}%>
+    <%if(locals.accountData.account_type === 'Admin' || locals.accountData.account_type === 'Employee') {%>
+        <h2>Happy <%= locals.accountData.account_type %> Archives</h2>
+    <%}%>
+    <p><a href="/message/inbox/<%= locals.accountData.account_id %>">Return to inbox</a></p>
+    <table style="width: auto; min-width: 40%;">
+        <tr>
+          <th>Recieved</th>
+          <th>Subject</th>
+          <th>From</th>
+          <th>Read</th>
+        </tr>
+        <% if (archived) { %>
+            
+              <% archived.forEach((message) => { %>
+                <tr>
+                    <td><%= new Date(message.message_created).toLocaleString() %></td>
+                    <td><a href="/message/read/<%=message.message_id%>"><%= message.message_subject %></a></td>
+                    <td><%= message.account_firstname %> <%= message.account_lastname %></td>
+                    <td><%= message.message_read %></td>
+                </tr>
+              <% }) %>
+          <% } %>
+      </table>
+</div>

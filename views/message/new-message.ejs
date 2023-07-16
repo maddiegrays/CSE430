@@ -1,0 +1,26 @@
+
+<%- messages() %>
+<div class="content-container-two">
+    <% if (locals.errors) { %>
+        <div class="errors" style="background-color: #00000099; padding: 10px;">
+            <% locals.errors.array().forEach((error) => { %>
+                <p><%= error.msg %></p>
+            <% }) %>
+        </div>
+    <% } %>
+  <h2>New Message</h2>
+  <form class="form-content-container" id="update" action="/message/create-new" method="post">
+  
+    <label for="recipient">To: </label>
+    <%- locals.select %>
+
+    <label for="subject">Subject: </label>
+    <input name="subject" placeholder="Subject" required value="<%= locals.subject %>">
+
+   <label for="message">Message</label>
+   <textarea id="message" name="message" rows="3" cols="50" pattern="[a-zA-Z]{10,500}$" required><%= locals.message %></textarea>
+
+   <input id="id" type="hidden" name="sender_id" value="<%= locals.accountData.account_id %>">
+   <button type="submit">Send</button>
+</form>
+</div>

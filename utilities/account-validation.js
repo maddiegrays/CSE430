@@ -221,4 +221,10 @@ validate.checkUpdateAccountData = async (req, res, next) => {
 
 
 
+
+
+
+
+
+
 module.exports = validate

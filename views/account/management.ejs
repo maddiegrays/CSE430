@@ -1,42 +1,56 @@
 <% if (title) { %>
-    <h1><%= title %></h1> 
-    <% } else {
-        res.redirect('/')
-    } %>
+  <h1><%= title %></h1> 
+  <% } else {
+      res.redirect('/')
+  } %>
 
 
 <% if (errors) { %>
-    <div class="errors">
-      <% errors.array().forEach((error) => { %>
-        <p><%= error.msg %></p>
-      <% }) %>
-    </div>
-  <% } %>
+  <div class="errors">
+    <% errors.array().forEach((error) => { %>
+      <p><%= error.msg %></p>
+    <% }) %>
+  </div>
+<% } %>
 
 
-  
+
 
 <p ><%- messages() %></p>
+<!--<div class="main-container">-->
 
+<!--    <div class="login-container">-->
+<!--        <form id="loginForm" action="/account/login" method="post">-->
+
+<!--            <div>-->
+<!--                <h1>YOU ARE LOGGED IN</h1>-->
+<!--            </div>-->
+<!--       </form>-->
+
+<!--   </div>-->
+<!--</div>-->
 <div class="content-container">
-    <%if(locals.accountData.account_type === 'Client') {%>
-        <h2>Welcome <%= locals.accountData.account_firstname %></h2>
-        <p>
-            <a class="register-link" href="/account/update-information/<%= locals.accountData.account_id %>">Update account Information</a>
-        </p>
-    <%}%>
-    <%if(locals.accountData.account_type === 'Admin' || locals.accountData.account_type === 'Employee') {%>
-        <h2>Welcome <%= locals.accountData.account_firstname %></h2>
-        <p>
-            <a class="register-link" href="/account/update-information/<%= locals.accountData.account_id %>">Update account Information</a>
-        </p>
-        <h3>Inventory management</h3>
-        <p>
-            <a class="register-link" href="/inv">Manage Inventory</a>
-        </p>
-    <%}%>
+  <%if(locals.accountData.account_type === 'Client') {%>
+      <h2>Welcome <%= locals.accountData.account_firstname %></h2>
+      <p>
+          <a class="register-link" href="/account/update-information/<%= locals.accountData.account_id %>">Update account Information</a>
+      </p>
+  <%}%>
+  <%if(locals.accountData.account_type === 'Admin' || locals.accountData.account_type === 'Employee') {%>
+      <h2>Welcome <%= locals.accountData.account_firstname %></h2>
+      <p>
+          <a class="register-link" href="/account/update-information/<%= locals.accountData.account_id %>">Update account Information</a>
+      </p>
+      <h3>Inventory management</h3>
+      <p>
+          <a class="register-link" href="/inv">Manage Inventory</a>
+      </p>
+  <%}%>
+  <h3>Message Center</h2>
+  <ul>
+      <li>You have <%= locals.unread_message_count %> uread messages</li>
+      <li>Go to <a href="/message/inbox/<%= locals.accountData.account_id %>">inbox</a></li>
+  </ul>
 
 </div>
-   
-
 

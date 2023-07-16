@@ -1,8 +1,13 @@
-
+/* ******************************************
+ * This server.js file is the primary file of the 
+ * application. It is used to control the project.
+ *******************************************/
 /* ***********************
  * Require Statements
  *************************/
 
+// This is the one shown in the video by prof  https://www.youtube.com/watch?v=KESjrocakuI
+//Unit4 Week 7 & 8 additions
 const session = require("express-session")
 const pool = require('./database/')
 
@@ -22,10 +27,6 @@ const cookieParser = require("cookie-parser")  //Unit 5
 /* ***********************
  * View Engine and Templates
  *************************/
-
-
-
-
 /* ***********************
  * Middleware
  * ************************/
@@ -78,6 +79,9 @@ app.use("/inv", require("./routes/inventoryRoute"))
 //Account routes - Unit 4
 app.use("/account", require("./routes/accountRoute"))
 
+//Message routes
+app.use("/message", require("./routes/messageRoute"))
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'});
@@ -87,6 +91,7 @@ app.use(async (req, res, next) => {
 
 /* ***********************
 * Express Error Handler
+* Place after all other middleware
 * Error Handling
 *************************/
 app.use(async (err, req, res, next) => {
@@ -103,8 +108,10 @@ app.use(async (err, req, res, next) => {
 
 
 
+
 const port = process.env.PORT
 const host = process.env.HOST
+
 
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)

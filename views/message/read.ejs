@@ -1,0 +1,24 @@
+
+<p ><%- messages() %></p>
+<div class="content-container-two">
+    <% if (locals.errors) { %>
+        <div class="errors" style="background-color: #00000099; padding: 10px;">
+            <% locals.errors.array().forEach((error) => { %>
+                <p><%= error.msg %></p>
+            <% }) %>
+        </div>
+    <% } %>
+    <h2><%= locals.message.message_subject %></h2>
+    <p class="message"><strong>Subject: </strong> <%= locals.message.message_subject %> </p>
+    <p class="message"><strong>From: </strong> <%= locals.message.account_firstname %> <%= locals.message.account_lastname %> </p>
+    <p class="message"><strong>Message: </strong><br> <%= locals.message.message_body %> </p>
+    <br><br>
+    <hr class="border-line">
+    <p><a href="/message/inbox/<%= locals.accountData.account_id %>">Return to inbox</a></p>
+    <a href="/message/reply/<%= locals.message.message_id %>"><button class="btn">Reply</button></a>
+    <% if (!locals.message.message_archived) { %>
+      <a href="/message/mark-as-read/<%= locals.message.message_id %>"><button class="btn">Mark as read</button></a>
+      <a href="/message/archive/<%= locals.message.message_id %>"><button class="btn">Archive Message</button></a>
+    <% } %>
+    <a href="/message/delete/<%= locals.message.message_id %>"><button class="btn">Delete Message</button></a>
+</div>

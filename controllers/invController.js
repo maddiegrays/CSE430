@@ -21,7 +21,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
 
 
 
-
+//step 
 /* ***************************
  *  Deliver Item Detail view
  * ************************** */
@@ -118,7 +118,7 @@ invCont.createNewInventory = async function (req, res) {
 
 
 /* ***************************
- *  Return Inventory by Classification 
+ *  Return Inventory by Classification As JSON  Unit 5
  * ************************** */
 invCont.getInventoryJSON = async (req, res, next) => {
   const classification_id = parseInt(req.params.classification_id)
@@ -238,6 +238,7 @@ invCont.deleteInventory = async function (req, res) {
 }
 
 module.exports = invCont
+
 
 
 

@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const accModel = require("../models/account-model")
+const messageModel = require("../models/message-model")
 const Util = {}
 const jwt = require("jsonwebtoken") //Unit 5
 const env = require("dotenv").config()    //Unit 5
@@ -150,6 +151,28 @@ Util.buildClassificationList = async function(){
   return list
 }
 
+/***************************************
+    * Build the classification list view HTML
+* ************************************ */
+
+Util.buildMessageRecipientList = async function(user_id){
+  let recipients = await messageModel.getAllUsers(user_id)
+  let list
+  if(recipients.length > 0){
+    list = '<select name="recipient_id" required>'
+    list += '<option>Select a recipient</option>'
+    recipients.forEach(user => {
+      list += '<option value="' + user.account_id +'">'
+      list += user.account_firstname + ' ' + user.account_lastname
+      list += '</option>'
+    })
+    list += '</select>'
+  } else {
+    list += '<p class="notice">No Recipient available.</p>'
+  }
+  return list
+}
+
 /* ****************************************
  *  Check Login  Unit 5
  * ************************************ */
@@ -165,11 +188,23 @@ Util.checkLogin = (req, res, next) => {
 /* ****************************************
  *  Middleware to Check user account type
  * ************************************ */
-Util.checkUserAccountType = (req, res, next) => {
+Util.checkAdminUserAccountType = (req, res, next) => {
   if (['Admin', 'Employee'].includes(res.locals.accountData.account_type)) {
     next()
   } else {
     req.flash("notice", "Only Admins and Employees are allowed to visit this route.")
+    return res.redirect("/account")
+  }
+}
+
+/* ****************************************
+ *  Middleware to Check user account type that can access messaging module
+ * ************************************ */
+Util.checkUserAccountType = (req, res, next) => {
+  if (['Admin', 'Employee', 'Client'].includes(res.locals.accountData.account_type)) {
+    next()
+  } else {
+    req.flash("notice", "Only Logged in Admins and Employees and Clients are allowed to visit this route.")
     return res.redirect("/account")
   }
 }
