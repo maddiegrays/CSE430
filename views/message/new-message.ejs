@@ -2,7 +2,7 @@
 <%- messages() %>
 <div class="content-container-two">
     <% if (locals.errors) { %>
-        <div class="errors" style="background-color: #00000099; padding: 10px;">
+        <div class="errors" style="background-color: #fff70099; padding: 10px;">
             <% locals.errors.array().forEach((error) => { %>
                 <p><%= error.msg %></p>
             <% }) %>
